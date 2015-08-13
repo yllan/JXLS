@@ -39,6 +39,8 @@
 -(JXLSCell *)setCellAtRow:(uint32_t)row column:(uint32_t)col toDoubleValue:(double)dbl withNumberFormat:(int)numFormat;            // Deprecated
 -(JXLSCell *)setCellAtRow:(uint32_t)row column:(uint32_t)col toDoubleValue:(double)dbl withFormat:(JXLSExtendedFormat *)extFormat;	// NULL format OK
 
+-(JXLSCell *)setCellAtRow:(uint32_t)row column:(uint32_t)col sumFrom: (JXLSCell *)fromCell to: (JXLSCell *)toCell;
+
 -(void)setHeight:(uint16_t)height forRow:(uint32_t)row defaultFormat:(JXLSExtendedFormat *)extFormat;	// NULL format OK
 -(void)setWidth:(uint16_t)height forColumn:(uint32_t)col defaultFormat:(JXLSExtendedFormat *)extFormat;	// NULL format OK
 

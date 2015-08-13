@@ -154,6 +154,16 @@ using namespace xlslib_strings;
 	return aCell;
 }
 
+-(JXLSCell *)setCellAtRow:(uint32_t)row column:(uint32_t)col sumFrom: (JXLSCell *)fromCell to: (JXLSCell *)toCell
+{
+    expression_node_factory_t &maker = xlslib_core::workbook().GetFormulaFactory();
+    
+    expression_node_t *pExpFormula = maker.f(FUNC_SUM, maker.area(*((cell_t*)fromCell.cell), *((cell_t*)toCell.cell), _workSheet, CELL_RELATIVE_A1));
+    cell_t *cl = _workSheet->formula(row, col, pExpFormula);
+    JXLSCell *aCell = [[JXLSCell alloc] initWithCell:cl];
+    return aCell;
+}
+
 -(void)setHeight:(uint16_t)height forRow:(uint32_t)row defaultFormat:(JXLSExtendedFormat *)extFormat
 {
 	_workSheet->rowheight(row, height, (xf_t *)[extFormat extendedFormat]);

@@ -61,6 +61,8 @@
 		cell = [workSheet setCellAtRow:idx column:3 toString:@"Hello World"];
 		[cell setVerticalAlignment:VALIGN_TOP + idx];
 	}
+    
+    [workSheet setCellAtRow: 10 column: 3 sumFrom: [workSheet cellAtRow: 0 col: 1] to:[workSheet cellAtRow: 9 col: 1]];
 	
 	int fud = [workBook writeToFile:filePath];
 
